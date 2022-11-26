@@ -198,6 +198,8 @@ nodo_t* inserisci_in_coda(nodo_t* l, int num){
 
 			}*/
 
+			prec = l;
+			
 			do{
 
 				printf("\nsono nel dowhile");
