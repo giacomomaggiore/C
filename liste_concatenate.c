@@ -37,7 +37,7 @@ int main(){
 	
 	//inserisci_in_coda_no_return(&head, 7);
 
-	visualizza_lista(head);
+	//visualizza_lista(head);
 
 
 	return 0;
@@ -169,6 +169,7 @@ void inserisci_in_testa_no_return(nodo_t** l, int num){
 nodo_t* inserisci_in_coda(nodo_t* l, int num){
 
 	nodo_t *tmp, *prec;
+	int flag=0;
 
 	tmp = malloc(sizeof(nodo_t));
 
@@ -178,15 +179,40 @@ nodo_t* inserisci_in_coda(nodo_t* l, int num){
 
 		tmp->next = NULL;
 
+		printf("\ntmp assegnata a : %d", tmp->num);
+
 		if(l==NULL){		//se la lista è vuota inserisce in testa
 
 			l = tmp;
+
+			printf("\nla lista è vuota inserisco tmp");
 		}else{
 
-			for(prec=l; prec->next != NULL; prec=prec->next){ //si scorre tutta la lista
+			printf("\nla lista non è vuota");
+
+			/*for(prec=l; prec->next != NULL; prec=prec->next){ //si scorre tutta la lista
 
 				prec->next = tmp; //si mette in coda all'ultimo
-			}
+
+				printf("\nsono nel for");
+
+			}*/
+
+			do{
+
+				printf("\nsono nel dowhile");
+
+				if(prec->next == NULL && flag==0){
+
+					printf("\nsono nell'if");
+
+					prec->next = tmp;
+					//flag++;
+				}
+
+				prec=prec->next;
+
+			}while(prec->next != NULL);
 		}
 	}else{
 
